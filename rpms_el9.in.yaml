@@ -1,0 +1,16 @@
+contentOrigin:
+  repofiles:
+    - ubi9.repo
+packages:
+  - annobin
+  - openssl   
+  - openssl-devel
+  - clang
+  - libsemanage
+  - llvm
+  - wget
+#reinstallPackages:
+#  - name: tzdata
+#    version: 2024b
+#    release: 4.el8
+#    architecture: noarch

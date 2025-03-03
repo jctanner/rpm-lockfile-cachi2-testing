@@ -1,0 +1,10 @@
+contentOrigin:
+  repofiles:
+    - ubi8.repo
+packages:
+  - openssl   
+#reinstallPackages:
+#  - name: tzdata
+#    version: 2024b
+#    release: 4.el8
+#    architecture: noarch

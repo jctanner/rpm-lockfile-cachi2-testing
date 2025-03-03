@@ -1,0 +1,23 @@
+FROM registry.access.redhat.com/ubi8/ubi:latest as builder
+
+USER root
+
+RUN dnf install -y \
+  which \
+  patch \
+  gcc \
+  clang \
+  cmake \
+  make \
+  openssl \
+  ca-certificates \
+  unzip \
+  git \
+  findutils \
+  rsync \
+  python3
+
+# Introduces tzdata package here to avoid LoadTimeZone check failed error in the metadata store server.
+RUN microdnf update -y && \
+  microdnf reinstall -y \
+  tzdata

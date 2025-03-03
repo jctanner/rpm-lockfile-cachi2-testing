@@ -1,0 +1,8 @@
+#FROM registry.access.redhat.com/ubi9/go-toolset:1.21@sha256:97e30a01caeece72ee967013e7c7af777ea4ee93840681ddcfe38a87eb4c084a as builder
+FROM registry.access.redhat.com/ubi9/go-toolset:1.21 as builder
+#FROM registry.access.redhat.com/ubi9/go-toolset:1.22 as builder
+USER root
+RUN dnf install -y openssl clang
+
+FROM registry.access.redhat.com/ubi9/ubi:latest as runtime
+RUN dnf install -y wget
