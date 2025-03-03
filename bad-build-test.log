@@ -1,0 +1,610 @@
+STEP 1/6: FROM registry.fedoraproject.org/fedora:latest
+STEP 2/6: RUN dnf install -y python3 python3-pip python3-dnf skopeo rpm
+--> Using cache 435594a4334a5beeee098a6c430b68532fd80c7a1e44e2c2c06ef8a07d0ae6f0
+--> 435594a4334a
+STEP 3/6: WORKDIR /app
+--> Using cache 86f1774cc5bd2bc50784a8eb020d133ddeaf281c7ef68d7b67543c8131c9f3ac
+--> 86f1774cc5bd
+STEP 4/6: ARG GIT_REF=heads/main
+--> Using cache 0a7e813ea953aa7d80e5e0435e4f84d4777d7bd7131b5bcb5a24fc57f26ebc39
+--> 0a7e813ea953
+STEP 5/6: RUN python3 -m pip install https://github.com/konflux-ci/rpm-lockfile-prototype/archive/refs/${GIT_REF}.tar.gz
+--> Using cache a897cea75ce8853c953b4b05e78f1c48e0951512934c9de1a575437acd6cec2a
+--> a897cea75ce8
+STEP 6/6: ENTRYPOINT ["/usr/local/bin/rpm-lockfile-prototype"]
+--> Using cache 65140103bf1bfc80daec268fc2dbfa3024d689489eb1ceb98b46c5c936debf83
+COMMIT jtanner/lockfile-prototype-test:latest
+--> 65140103bf1b
+Successfully tagged localhost/jtanner/lockfile-prototype-test:latest
+Successfully tagged localhost/jctanner/rpm-lockfile-prototype:latest
+65140103bf1bfc80daec268fc2dbfa3024d689489eb1ceb98b46c5c936debf83
+INFO:root:Running solver for x86_64
+INFO:root:$ skopeo --override-arch=amd64 inspect docker://registry.access.redhat.com/ubi9/ubi:latest
+INFO:root:$ skopeo --override-arch=amd64 copy docker://registry.access.redhat.com/ubi9/ubi@sha256:d342aa80781bf41c4c73485c41d8f1e2dbc40ee491633d9cafe787c361dd44ff dir:/tmp/tmpcpi0k43d
+Getting image source signatures
+Checking if image destination supports signatures
+Copying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [--------------------------------------] 0.0b / 84.4MiB | 0.0 b/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [--------------------------------------] 0.0b / 84.4MiB | 0.0 b/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [--------------------------------------] 50.6KiB / 84.4MiB | 2.0 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [--------------------------------------] 209.6KiB / 84.4MiB | 1.9 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [>-------------------------------------] 1.6MiB / 84.4MiB | 24.2 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [=>------------------------------------] 4.4MiB / 84.4MiB | 45.6 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [==>-----------------------------------] 7.6MiB / 84.4MiB | 95.5 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [====>---------------------------------] 10.3MiB / 84.4MiB | 78.0 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [=====>--------------------------------] 14.0MiB / 84.4MiB | 35.3 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [=======>------------------------------] 18.0MiB / 84.4MiB | 21.2 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [========>-----------------------------] 19.8MiB / 84.4MiB | 7.2 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [=========>----------------------------] 22.3MiB / 84.4MiB | 52.3 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [===========>--------------------------] 25.9MiB / 84.4MiB | 64.0 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [============>-------------------------] 28.8MiB / 84.4MiB | 55.7 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [=============>------------------------] 31.7MiB / 84.4MiB | 37.9 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [===============>----------------------] 35.7MiB / 84.4MiB | 46.8 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [================>---------------------] 38.3MiB / 84.4MiB | 56.7 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [==================>-------------------] 41.5MiB / 84.4MiB | 56.0 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [===================>------------------] 45.3MiB / 84.4MiB | 23.0 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [=====================>----------------] 48.7MiB / 84.4MiB | 45.9 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [======================>---------------] 52.2MiB / 84.4MiB | 41.0 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [========================>-------------] 55.2MiB / 84.4MiB | 81.5 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [==========================>-----------] 59.1MiB / 84.4MiB | 30.4 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [===========================>----------] 62.7MiB / 84.4MiB | 31.2 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [============================>---------] 65.5MiB / 84.4MiB | 46.4 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [==============================>-------] 67.8MiB / 84.4MiB | 13.9 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [===============================>------] 70.9MiB / 84.4MiB | 88.2 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [================================>-----] 73.8MiB / 84.4MiB | 30.7 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [==================================>---] 77.0MiB / 84.4MiB | 39.7 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [===================================>--] 80.6MiB / 84.4MiB | 63.4 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 [=====================================>] 84.4MiB / 84.4MiB | 36.1 MiB/s
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 done   | 
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 done   | 
+[2A[JCopying blob 3d1c86608284 done   | 
+Copying blob de21b519acd7 done   | 
+Copying config 9125c6cae4 done   | 
+[1A[JCopying config 9125c6cae4 done   | 
+[1A[JCopying config 9125c6cae4 done   | 
+Writing manifest to image destination
+Storing signatures
+INFO:root:Extracting rpmdb from layer sha256:de21b519acd77702462adda3568d44cf5b62dadfc75368c1c079936710e3410a
+INFO:root:Extracting rpmdb from layer sha256:3d1c86608284350c3485dffa5199bf67704f1d2ede9857bf90f2c2345792c609
+INFO:dnf:Added ubi-9-baseos-rpms repo from https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/$basearch/baseos/os
+INFO:dnf:Added ubi-9-baseos-debug-rpms repo from https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/$basearch/baseos/debug
+INFO:dnf:Added ubi-9-baseos-source-rpms repo from https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/$basearch/baseos/source/SRPMS
+INFO:dnf:Added ubi-9-appstream-rpms repo from https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/$basearch/appstream/os
+INFO:dnf:Added ubi-9-appstream-debug-rpms repo from https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/$basearch/appstream/debug
+INFO:dnf:Added ubi-9-appstream-source-rpms repo from https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/$basearch/appstream/source/SRPMS
+INFO:dnf:Added ubi-9-codeready-builder-rpms repo from https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/$basearch/codeready-builder/os
+INFO:dnf:Added ubi-9-codeready-builder-debug-rpms repo from https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/$basearch/codeready-builder/debug
+INFO:dnf:Added ubi-9-codeready-builder-source-rpms repo from https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/$basearch/codeready-builder/source/SRPMS
+INFO:dnf:Package libsemanage-3.6-2.1.el9_5.x86_64 is already installed.
+INFO:dnf:Package openssl-1:3.2.2-6.el9_5.1.x86_64 is already installed.
+WARNING:root:No sources found for clang-libs-18.1.8-3.el9.x86_64
+WARNING:root:No sources found for clang-resource-filesystem-18.1.8-3.el9.noarch
+WARNING:root:No sources found for policycoreutils-python-utils-3.6-2.1.el9.noarch
+WARNING:root:No sources found for diffutils-3.7-12.el9.x86_64
+WARNING:root:No sources found for compiler-rt-18.1.8-1.el9.x86_64
+WARNING:root:No sources found for wget-1.21.1-8.el9_4.x86_64
+WARNING:root:No sources found for cpp-11.5.0-5.el9_5.x86_64
+WARNING:root:No sources found for elfutils-debuginfod-client-0.191-4.el9.x86_64
+WARNING:root:No sources found for environment-modules-5.3.0-1.el9.x86_64
+WARNING:root:No sources found for scl-utils-1:2.0.3-4.el9.x86_64
+WARNING:root:No sources found for libomp-18.1.8-1.el9.x86_64
+WARNING:root:No sources found for python3-distro-1.5.0-7.el9.noarch
+WARNING:root:No sources found for checkpolicy-3.6-1.el9.x86_64
+WARNING:root:No sources found for libomp-devel-18.1.8-1.el9.x86_64
+WARNING:root:No sources found for libedit-3.1-38.20210216cvs.el9.x86_64
+WARNING:root:No sources found for python3-setools-4.4.4-1.el9.x86_64
+WARNING:root:No sources found for gcc-toolset-13-libstdc++-devel-13.3.1-2.2.el9_5.x86_64
+WARNING:root:No sources found for python3-libselinux-3.6-1.el9.x86_64
+WARNING:root:No sources found for libstdc++-devel-11.5.0-5.el9_5.x86_64
+WARNING:root:No sources found for make-1:4.3-8.el9.x86_64
+WARNING:root:No sources found for man-db-2.9.3-7.el9.x86_64
+WARNING:root:No sources found for libmpc-1.2.1-4.el9.x86_64
+WARNING:root:No sources found for python3-policycoreutils-3.6-2.1.el9.noarch
+WARNING:root:No sources found for glibc-devel-2.34-125.el9_5.1.x86_64
+WARNING:root:No sources found for glibc-headers-2.34-125.el9_5.1.x86_64
+WARNING:root:No sources found for python3-audit-3.1.5-1.el9.x86_64
+WARNING:root:No sources found for gcc-11.5.0-5.el9_5.x86_64
+WARNING:root:No sources found for gcc-c++-11.5.0-5.el9_5.x86_64
+WARNING:root:No sources found for groff-base-1.22.4-10.el9.x86_64
+WARNING:root:No sources found for python3-libsemanage-3.6-2.1.el9_5.x86_64
+WARNING:root:No sources found for llvm-18.1.8-3.el9.x86_64
+WARNING:root:No sources found for binutils-2.35.2-54.el9.x86_64
+WARNING:root:No sources found for tcl-1:8.6.10-7.el9.x86_64
+WARNING:root:No sources found for binutils-gold-2.35.2-54.el9.x86_64
+WARNING:root:No sources found for llvm-libs-18.1.8-3.el9.x86_64
+WARNING:root:No sources found for annobin-12.65-1.el9.x86_64
+WARNING:root:No sources found for openssl-devel-1:3.2.2-6.el9_5.1.x86_64
+WARNING:root:No sources found for libpipeline-1.5.3-4.el9.x86_64
+WARNING:root:No sources found for vim-filesystem-2:8.2.2637-21.el9.noarch
+WARNING:root:No sources found for libpkgconf-1.7.3-10.el9.x86_64
+WARNING:root:No sources found for jansson-2.14-1.el9.x86_64
+WARNING:root:No sources found for libpsl-0.21.1-5.el9.x86_64
+WARNING:root:No sources found for gcc-toolset-13-gcc-13.3.1-2.2.el9_5.x86_64
+WARNING:root:No sources found for pkgconf-1.7.3-10.el9.x86_64
+WARNING:root:No sources found for pkgconf-m4-1.7.3-10.el9.noarch
+WARNING:root:No sources found for pkgconf-pkg-config-1.7.3-10.el9.x86_64
+WARNING:root:No sources found for policycoreutils-3.6-2.1.el9.x86_64
+WARNING:root:No sources found for gcc-toolset-13-gcc-c++-13.3.1-2.2.el9_5.x86_64
+WARNING:root:No sources found for kernel-headers-5.14.0-503.26.1.el9_5.x86_64
+WARNING:root:No sources found for libselinux-utils-3.6-1.el9.x86_64
+WARNING:root:No sources found for procps-ng-3.3.17-14.el9.x86_64
+WARNING:root:No sources found for less-590-5.el9.x86_64
+WARNING:root:No sources found for gcc-toolset-13-binutils-2.40-21.el9.x86_64
+WARNING:root:No sources found for publicsuffix-list-dafsa-20210518-3.el9.noarch
+WARNING:root:No sources found for gcc-toolset-13-binutils-gold-2.40-21.el9.x86_64
+WARNING:root:No sources found for gcc-toolset-13-runtime-13.0-2.el9.x86_64
+WARNING:root:No sources found for clang-18.1.8-3.el9.x86_64
+WARNING:root:No sources found for libxcrypt-devel-4.4.18-3.el9.x86_64
+WARNING:root:No sources found for libatomic-11.5.0-5.el9_5.x86_64
+----------------------------------
+LOCK FILE PACKAGES
+----------------------------------
+annobin
+checkpolicy
+clang
+clang-libs
+clang-resource-filesystem
+compiler-rt
+cpp
+gcc
+gcc-c++
+gcc-toolset-13-binutils
+gcc-toolset-13-binutils-gold
+gcc-toolset-13-gcc
+gcc-toolset-13-gcc-c++
+gcc-toolset-13-libstdc++-devel
+gcc-toolset-13-runtime
+glibc-devel
+glibc-headers
+kernel-headers
+libmpc
+libomp
+libomp-devel
+libstdc++-devel
+libxcrypt-devel
+llvm
+llvm-libs
+openssl-devel
+policycoreutils-python-utils
+python3-audit
+python3-distro
+python3-libselinux
+python3-libsemanage
+python3-policycoreutils
+scl-utils
+wget
+binutils
+binutils-gold
+diffutils
+elfutils-debuginfod-client
+environment-modules
+groff-base
+jansson
+less
+libatomic
+libedit
+libpipeline
+libpkgconf
+libpsl
+libselinux-utils
+make
+man-db
+pkgconf
+pkgconf-m4
+pkgconf-pkg-config
+policycoreutils
+procps-ng
+publicsuffix-list-dafsa
+python3-setools
+tcl
+vim-filesystem
+2025-03-03 13:55:52,541 INFO Reading RPM lockfile: /workdir/rpms-test-el9.lock.yaml
+2025-03-03 13:55:52,593 DEBUG Validating lockfile.
+2025-03-03 13:55:52,593 INFO Downloading files for 'x86_64' architecture.
+2025-03-03 13:55:52,596 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/a/annobin-12.65-1.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:52,597 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/checkpolicy-3.6-1.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:52,598 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/clang-18.1.8-3.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:52,598 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/clang-libs-18.1.8-3.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:52,599 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/clang-resource-filesystem-18.1.8-3.el9.noarch.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:52,760 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/clang-resource-filesystem-18.1.8-3.el9.noarch.rpm
+2025-03-03 13:55:52,761 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/compiler-rt-18.1.8-1.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:52,801 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/clang-18.1.8-3.el9.x86_64.rpm
+2025-03-03 13:55:52,802 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/cpp-11.5.0-5.el9_5.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:52,911 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/checkpolicy-3.6-1.el9.x86_64.rpm
+2025-03-03 13:55:52,914 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-11.5.0-5.el9_5.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:53,222 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/a/annobin-12.65-1.el9.x86_64.rpm
+2025-03-03 13:55:53,230 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-c++-11.5.0-5.el9_5.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:53,656 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/compiler-rt-18.1.8-1.el9.x86_64.rpm
+2025-03-03 13:55:53,660 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-binutils-2.40-21.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:55,346 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/cpp-11.5.0-5.el9_5.x86_64.rpm
+2025-03-03 13:55:55,350 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-binutils-gold-2.40-21.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:55,516 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/clang-libs-18.1.8-3.el9.x86_64.rpm
+2025-03-03 13:55:55,516 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-gcc-13.3.1-2.2.el9_5.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:55,621 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-binutils-gold-2.40-21.el9.x86_64.rpm
+2025-03-03 13:55:55,623 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-gcc-c++-13.3.1-2.2.el9_5.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:56,062 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-binutils-2.40-21.el9.x86_64.rpm
+2025-03-03 13:55:56,063 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-libstdc++-devel-13.3.1-2.2.el9_5.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:56,915 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-libstdc++-devel-13.3.1-2.2.el9_5.x86_64.rpm
+2025-03-03 13:55:56,916 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-runtime-13.0-2.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:57,050 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-runtime-13.0-2.el9.x86_64.rpm
+2025-03-03 13:55:57,051 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/glibc-devel-2.34-125.el9_5.1.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:57,154 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/glibc-devel-2.34-125.el9_5.1.x86_64.rpm
+2025-03-03 13:55:57,155 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/glibc-headers-2.34-125.el9_5.1.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:57,274 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-c++-11.5.0-5.el9_5.x86_64.rpm
+2025-03-03 13:55:57,277 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/k/kernel-headers-5.14.0-503.26.1.el9_5.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:57,285 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/glibc-headers-2.34-125.el9_5.1.x86_64.rpm
+2025-03-03 13:55:57,286 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libmpc-1.2.1-4.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:57,350 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libmpc-1.2.1-4.el9.x86_64.rpm
+2025-03-03 13:55:57,353 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libomp-18.1.8-1.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:57,551 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libomp-18.1.8-1.el9.x86_64.rpm
+2025-03-03 13:55:57,552 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libomp-devel-18.1.8-1.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:57,888 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libomp-devel-18.1.8-1.el9.x86_64.rpm
+2025-03-03 13:55:57,891 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libstdc++-devel-11.5.0-5.el9_5.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:58,329 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/k/kernel-headers-5.14.0-503.26.1.el9_5.x86_64.rpm
+2025-03-03 13:55:58,332 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libxcrypt-devel-4.4.18-3.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:58,375 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libxcrypt-devel-4.4.18-3.el9.x86_64.rpm
+2025-03-03 13:55:58,376 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/llvm-18.1.8-3.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:58,665 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libstdc++-devel-11.5.0-5.el9_5.x86_64.rpm
+2025-03-03 13:55:58,666 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/llvm-libs-18.1.8-3.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:59,021 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-gcc-13.3.1-2.2.el9_5.x86_64.rpm
+2025-03-03 13:55:59,022 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/o/openssl-devel-3.2.2-6.el9_5.1.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:59,416 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/o/openssl-devel-3.2.2-6.el9_5.1.x86_64.rpm
+2025-03-03 13:55:59,421 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/policycoreutils-python-utils-3.6-2.1.el9.noarch.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:59,469 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/policycoreutils-python-utils-3.6-2.1.el9.noarch.rpm
+2025-03-03 13:55:59,470 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/python3-audit-3.1.5-1.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:59,569 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/python3-audit-3.1.5-1.el9.x86_64.rpm
+2025-03-03 13:55:59,570 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/python3-distro-1.5.0-7.el9.noarch.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:59,613 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/python3-distro-1.5.0-7.el9.noarch.rpm
+2025-03-03 13:55:59,614 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/python3-libselinux-3.6-1.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:59,671 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/python3-libselinux-3.6-1.el9.x86_64.rpm
+2025-03-03 13:55:59,673 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/python3-libsemanage-3.6-2.1.el9_5.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:59,741 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/python3-libsemanage-3.6-2.1.el9_5.x86_64.rpm
+2025-03-03 13:55:59,743 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/python3-policycoreutils-3.6-2.1.el9.noarch.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:55:59,956 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/python3-policycoreutils-3.6-2.1.el9.noarch.rpm
+2025-03-03 13:55:59,962 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/s/scl-utils-2.0.3-4.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:00,028 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/s/scl-utils-2.0.3-4.el9.x86_64.rpm
+2025-03-03 13:56:00,035 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/w/wget-1.21.1-8.el9_4.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:00,191 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/w/wget-1.21.1-8.el9_4.x86_64.rpm
+2025-03-03 13:56:00,195 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/b/binutils-2.35.2-54.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:00,458 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-11.5.0-5.el9_5.x86_64.rpm
+2025-03-03 13:56:00,467 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/b/binutils-gold-2.35.2-54.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:00,626 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/b/binutils-2.35.2-54.el9.x86_64.rpm
+2025-03-03 13:56:00,631 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/d/diffutils-3.7-12.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:00,750 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/b/binutils-gold-2.35.2-54.el9.x86_64.rpm
+2025-03-03 13:56:00,751 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/e/elfutils-debuginfod-client-0.191-4.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:00,795 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/d/diffutils-3.7-12.el9.x86_64.rpm
+2025-03-03 13:56:00,802 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/e/environment-modules-5.3.0-1.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:00,824 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/e/elfutils-debuginfod-client-0.191-4.el9.x86_64.rpm
+2025-03-03 13:56:00,834 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/g/groff-base-1.22.4-10.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:00,878 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/e/environment-modules-5.3.0-1.el9.x86_64.rpm
+2025-03-03 13:56:00,881 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/j/jansson-2.14-1.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:00,949 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/j/jansson-2.14-1.el9.x86_64.rpm
+2025-03-03 13:56:00,950 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/less-590-5.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,022 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/less-590-5.el9.x86_64.rpm
+2025-03-03 13:56:01,023 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libatomic-11.5.0-5.el9_5.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,110 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libatomic-11.5.0-5.el9_5.x86_64.rpm
+2025-03-03 13:56:01,112 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libedit-3.1-38.20210216cvs.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,183 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libedit-3.1-38.20210216cvs.el9.x86_64.rpm
+2025-03-03 13:56:01,184 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libpipeline-1.5.3-4.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,246 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libpipeline-1.5.3-4.el9.x86_64.rpm
+2025-03-03 13:56:01,255 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libpkgconf-1.7.3-10.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,265 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/g/groff-base-1.22.4-10.el9.x86_64.rpm
+2025-03-03 13:56:01,280 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libpsl-0.21.1-5.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,322 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libpkgconf-1.7.3-10.el9.x86_64.rpm
+2025-03-03 13:56:01,327 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libselinux-utils-3.6-1.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,412 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libselinux-utils-3.6-1.el9.x86_64.rpm
+2025-03-03 13:56:01,412 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/m/make-4.3-8.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,432 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-gcc-c++-13.3.1-2.2.el9_5.x86_64.rpm
+2025-03-03 13:56:01,437 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libpsl-0.21.1-5.el9.x86_64.rpm
+2025-03-03 13:56:01,442 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/m/man-db-2.9.3-7.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,444 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/pkgconf-1.7.3-10.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,531 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/pkgconf-1.7.3-10.el9.x86_64.rpm
+2025-03-03 13:56:01,534 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/pkgconf-m4-1.7.3-10.el9.noarch.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,540 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/m/make-4.3-8.el9.x86_64.rpm
+2025-03-03 13:56:01,541 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/pkgconf-pkg-config-1.7.3-10.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,637 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/pkgconf-pkg-config-1.7.3-10.el9.x86_64.rpm
+2025-03-03 13:56:01,640 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/policycoreutils-3.6-2.1.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,699 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/pkgconf-m4-1.7.3-10.el9.noarch.rpm
+2025-03-03 13:56:01,705 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/procps-ng-3.3.17-14.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,734 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/policycoreutils-3.6-2.1.el9.x86_64.rpm
+2025-03-03 13:56:01,734 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/publicsuffix-list-dafsa-20210518-3.el9.noarch.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,781 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/m/man-db-2.9.3-7.el9.x86_64.rpm
+2025-03-03 13:56:01,787 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/python3-setools-4.4.4-1.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,899 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/publicsuffix-list-dafsa-20210518-3.el9.noarch.rpm
+2025-03-03 13:56:01,900 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/t/tcl-8.6.10-7.el9.x86_64.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,936 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/procps-ng-3.3.17-14.el9.x86_64.rpm
+2025-03-03 13:56:01,940 DEBUG aiohttp.ClientSession.get(url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/v/vim-filesystem-8.2.2637-21.el9.noarch.rpm, timeout: ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None, ceil_threshold=5), raise_for_status: True)
+2025-03-03 13:56:01,985 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/v/vim-filesystem-8.2.2637-21.el9.noarch.rpm
+2025-03-03 13:56:02,004 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/python3-setools-4.4.4-1.el9.x86_64.rpm
+2025-03-03 13:56:02,307 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/t/tcl-8.6.10-7.el9.x86_64.rpm
+2025-03-03 13:56:02,564 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/llvm-libs-18.1.8-3.el9.x86_64.rpm
+2025-03-03 13:56:02,591 DEBUG Download completed - https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/llvm-18.1.8-3.el9.x86_64.rpm
+2025-03-03 13:56:02,595 DEBUG Verification of downloaded files has started.
+2025-03-03 13:56:03,350 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/annobin-12.65-1.el9.x86_64.rpm': Package(name='annobin', version='12.65', release='1.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/a/annobin-12.65-1.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:9cfe3427bef90b7c6b2cdfb3cb60182d8411fbc8f771c518d6aaffa3569d45eb', repository_id='ubi-9-appstream-rpms', summary='Annotate and examine compiled binary files')
+2025-03-03 13:56:03,363 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/checkpolicy-3.6-1.el9.x86_64.rpm': Package(name='checkpolicy', version='3.6', release='1.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/checkpolicy-3.6-1.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:3d12bc7e21276434108c97561f75d1854283afb73d4fface3b836acee09f8d98', repository_id='ubi-9-appstream-rpms', summary='SELinux policy compiler')
+2025-03-03 13:56:03,375 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/clang-18.1.8-3.el9.x86_64.rpm': Package(name='clang', version='18.1.8', release='3.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/clang-18.1.8-3.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:d3cba7ddce413485d4ee36e1d6dc50d92d730abf6f5a16e50b5dcf9ec61a2865', repository_id='ubi-9-appstream-rpms', summary='A C language family front-end for LLVM')
+2025-03-03 13:56:03,387 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/clang-libs-18.1.8-3.el9.x86_64.rpm': Package(name='clang-libs', version='18.1.8', release='3.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/clang-libs-18.1.8-3.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:cb792320144efd41a70fa0c0a061f9d86e146aac5bbccfdb8703466d6958deee', repository_id='ubi-9-appstream-rpms', summary='Runtime library for clang')
+2025-03-03 13:56:03,402 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/clang-resource-filesystem-18.1.8-3.el9.noarch.rpm': Package(name='clang-resource-filesystem', version='18.1.8', release='3.el9', arch='noarch', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/clang-resource-filesystem-18.1.8-3.el9.noarch.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:f26859c1f8397b23f457427b79f1c18c70a0d0426ebb85c3473f2e174cefe88e', repository_id='ubi-9-appstream-rpms', summary='Filesystem package that owns the clang resource directory')
+2025-03-03 13:56:03,416 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/compiler-rt-18.1.8-1.el9.x86_64.rpm': Package(name='compiler-rt', version='18.1.8', release='1.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/compiler-rt-18.1.8-1.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:e5a1b9617fd01d3b88e028506fc721c1af812120c028b83c77514f48ae421cf5', repository_id='ubi-9-appstream-rpms', summary='LLVM "compiler-rt" runtime libraries')
+2025-03-03 13:56:03,430 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/cpp-11.5.0-5.el9_5.x86_64.rpm': Package(name='cpp', version='11.5.0', release='5.el9_5', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/c/cpp-11.5.0-5.el9_5.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:b5567c690d46d4f5a2cb13be6a4f962dbe8cc7e821b9d3baa09a4f10c59014d9', repository_id='ubi-9-appstream-rpms', summary='The C Preprocessor')
+2025-03-03 13:56:03,444 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-11.5.0-5.el9_5.x86_64.rpm': Package(name='gcc', version='11.5.0', release='5.el9_5', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-11.5.0-5.el9_5.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:03c99bc1021dbe54dd93120ed6b5249bbb02dbd5da9e0dc5d8c4a21d674fb1fd', repository_id='ubi-9-appstream-rpms', summary='Various compilers (C, C++, Objective-C, ...)')
+2025-03-03 13:56:03,456 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-c++-11.5.0-5.el9_5.x86_64.rpm': Package(name='gcc-c++', version='11.5.0', release='5.el9_5', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-c++-11.5.0-5.el9_5.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:b8392274e302d665bc132aee4ed023f8a777d9c446531679ede18150d7867189', repository_id='ubi-9-appstream-rpms', summary='C++ support for GCC')
+2025-03-03 13:56:03,472 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-binutils-2.40-21.el9.x86_64.rpm': Package(name='gcc-toolset-13-binutils', version='2.40', release='21.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-binutils-2.40-21.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:b808432cf1d7c564280fda2e1c8382d5901af838f8d6ab8d91e5d1a37c2f4a9c', repository_id='ubi-9-appstream-rpms', summary='A GNU collection of binary utilities')
+2025-03-03 13:56:03,485 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-binutils-gold-2.40-21.el9.x86_64.rpm': Package(name='gcc-toolset-13-binutils-gold', version='2.40', release='21.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-binutils-gold-2.40-21.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:c5fe9671a394bd445be2ae42837e228eedb1ee327365bf04a4d94404b24b7801', repository_id='ubi-9-appstream-rpms', summary='The GOLD linker, a faster alternative to the BFD linker')
+2025-03-03 13:56:03,499 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-gcc-13.3.1-2.2.el9_5.x86_64.rpm': Package(name='gcc-toolset-13-gcc', version='13.3.1', release='2.2.el9_5', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-gcc-13.3.1-2.2.el9_5.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:6a726329c7d786a6eb9955512a5ad78fc9086a09c92991563d83123b60c282dd', repository_id='ubi-9-appstream-rpms', summary='GCC version 13')
+2025-03-03 13:56:03,513 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-gcc-c++-13.3.1-2.2.el9_5.x86_64.rpm': Package(name='gcc-toolset-13-gcc-c++', version='13.3.1', release='2.2.el9_5', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-gcc-c++-13.3.1-2.2.el9_5.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:f660ccd8a005598017d572a625e76c5132062ee43365dfee7cf2ee632845df16', repository_id='ubi-9-appstream-rpms', summary='C++ support for GCC version 13')
+2025-03-03 13:56:03,527 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-libstdc++-devel-13.3.1-2.2.el9_5.x86_64.rpm': Package(name='gcc-toolset-13-libstdc++-devel', version='13.3.1', release='2.2.el9_5', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-libstdc++-devel-13.3.1-2.2.el9_5.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:3eb1f9956ff301f76cd4851fa33c5e3adc3a46b32f1ff24780f7fd3399d5b1c3', repository_id='ubi-9-appstream-rpms', summary='Header files and libraries for C++ development')
+2025-03-03 13:56:03,541 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-runtime-13.0-2.el9.x86_64.rpm': Package(name='gcc-toolset-13-runtime', version='13.0', release='2.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-toolset-13-runtime-13.0-2.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:0061a02187dbbdfd6da659c98749693bce4da02be8d4d9827a8d1fa867610e9d', repository_id='ubi-9-appstream-rpms', summary='Package that handles gcc-toolset-13 Software Collection.')
+2025-03-03 13:56:03,556 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/glibc-devel-2.34-125.el9_5.1.x86_64.rpm': Package(name='glibc-devel', version='2.34', release='125.el9_5.1', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/glibc-devel-2.34-125.el9_5.1.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:7ad500371d5034800ab8f5c6b4dd896801b1a97baa6a57bc6c982787afff2b20', repository_id='ubi-9-appstream-rpms', summary='Object files for development using standard C libraries.')
+2025-03-03 13:56:03,573 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/glibc-headers-2.34-125.el9_5.1.x86_64.rpm': Package(name='glibc-headers', version='2.34', release='125.el9_5.1', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/glibc-headers-2.34-125.el9_5.1.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:16c84102b4457fc60ab9e46fd235bed4c9ac9dddf5cfeae3df51a5f00ce2dd5e', repository_id='ubi-9-appstream-rpms', summary='Additional internal header files for glibc-devel.')
+2025-03-03 13:56:03,611 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/kernel-headers-5.14.0-503.26.1.el9_5.x86_64.rpm': Package(name='kernel-headers', version='5.14.0', release='503.26.1.el9_5', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/k/kernel-headers-5.14.0-503.26.1.el9_5.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:e3f6f637b01b759feb82ec8604552afb1c1d455381e06da7080bd666ebc45d68', repository_id='ubi-9-appstream-rpms', summary='Header files for the Linux kernel for use by glibc')
+2025-03-03 13:56:03,625 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/libmpc-1.2.1-4.el9.x86_64.rpm': Package(name='libmpc', version='1.2.1', release='4.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libmpc-1.2.1-4.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:b97b4e98c3c6f41dcfc2ceb4ffa1aba7a338b7cfd9e6c4f63e3160dd3cc033d3', repository_id='ubi-9-appstream-rpms', summary='C library for multiple precision complex arithmetic')
+2025-03-03 13:56:03,637 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/libomp-18.1.8-1.el9.x86_64.rpm': Package(name='libomp', version='18.1.8', release='1.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libomp-18.1.8-1.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:a2973cda446e20e6b9cefed695d0a3173a248d8294863a97119f9591bec5f67b', repository_id='ubi-9-appstream-rpms', summary='OpenMP runtime for clang')
+2025-03-03 13:56:03,649 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/libomp-devel-18.1.8-1.el9.x86_64.rpm': Package(name='libomp-devel', version='18.1.8', release='1.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libomp-devel-18.1.8-1.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:8a6566f0acab7da71459ddab00551120c6e755ceb8b841f8e30a5efb8282f07a', repository_id='ubi-9-appstream-rpms', summary='OpenMP header files')
+2025-03-03 13:56:03,664 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/libstdc++-devel-11.5.0-5.el9_5.x86_64.rpm': Package(name='libstdc++-devel', version='11.5.0', release='5.el9_5', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libstdc++-devel-11.5.0-5.el9_5.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:84695eeeb1daa8ff74baf7efd9fc57fb136bec7e8a2ca56c105be6d83ec22d07', repository_id='ubi-9-appstream-rpms', summary='Header files and libraries for C++ development')
+2025-03-03 13:56:03,677 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/libxcrypt-devel-4.4.18-3.el9.x86_64.rpm': Package(name='libxcrypt-devel', version='4.4.18', release='3.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libxcrypt-devel-4.4.18-3.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:c1d171391a7d2e043a6953efd3df3e01edc9b4c6cdb54517e1608d204a5fce18', repository_id='ubi-9-appstream-rpms', summary='Development files for libxcrypt')
+2025-03-03 13:56:03,691 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/llvm-18.1.8-3.el9.x86_64.rpm': Package(name='llvm', version='18.1.8', release='3.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/llvm-18.1.8-3.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:4d1d39986fa59f88021761336a45050172d1214263623fc76e6d1a53f76a44fe', repository_id='ubi-9-appstream-rpms', summary='The Low Level Virtual Machine')
+2025-03-03 13:56:03,706 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/llvm-libs-18.1.8-3.el9.x86_64.rpm': Package(name='llvm-libs', version='18.1.8', release='3.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/llvm-libs-18.1.8-3.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:9ea68fe509d5adf70fc797d689046fae6ddc073f91940a4198ff25aeb489ad04', repository_id='ubi-9-appstream-rpms', summary='LLVM shared libraries')
+2025-03-03 13:56:03,730 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/openssl-devel-3.2.2-6.el9_5.1.x86_64.rpm': Package(name='openssl-devel', version='3.2.2', release='6.el9_5.1', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/o/openssl-devel-3.2.2-6.el9_5.1.x86_64.rpm', epoch='1', vendor='Red Hat, Inc.', checksum='sha256:30cd1b3dec089a7da71e9167532693bef7c202a5dbe3c010af2a9387106a0b36', repository_id='ubi-9-appstream-rpms', summary='Files for development of applications which will use OpenSSL')
+2025-03-03 13:56:03,742 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/policycoreutils-python-utils-3.6-2.1.el9.noarch.rpm': Package(name='policycoreutils-python-utils', version='3.6', release='2.1.el9', arch='noarch', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/policycoreutils-python-utils-3.6-2.1.el9.noarch.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:fcbe07b75cd10b0a2752d558a8b7750cb13b59473439701d8c568195f05c3805', repository_id='ubi-9-appstream-rpms', summary='SELinux policy core python utilities')
+2025-03-03 13:56:03,757 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/python3-audit-3.1.5-1.el9.x86_64.rpm': Package(name='python3-audit', version='3.1.5', release='1.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/python3-audit-3.1.5-1.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:93dd7a77ab7c2bbc0b1ef7ec9714ea83018fbf0ce019bd65c2650c4abfbaad34', repository_id='ubi-9-appstream-rpms', summary='Python3 bindings for libaudit')
+2025-03-03 13:56:03,771 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/python3-distro-1.5.0-7.el9.noarch.rpm': Package(name='python3-distro', version='1.5.0', release='7.el9', arch='noarch', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/python3-distro-1.5.0-7.el9.noarch.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:5cf4276217a72649895226707d4c0e3edd6ea64b66702793fab3907177c73069', repository_id='ubi-9-appstream-rpms', summary='Linux Distribution - a Linux OS platform information API')
+2025-03-03 13:56:03,786 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/python3-libselinux-3.6-1.el9.x86_64.rpm': Package(name='python3-libselinux', version='3.6', release='1.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/python3-libselinux-3.6-1.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:84aff2ff0c48ca4f5d77223db53a26a16c273b03a9674a2608e1db5d8cd32710', repository_id='ubi-9-appstream-rpms', summary='SELinux python 3 bindings for libselinux')
+2025-03-03 13:56:03,801 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/python3-libsemanage-3.6-2.1.el9_5.x86_64.rpm': Package(name='python3-libsemanage', version='3.6', release='2.1.el9_5', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/python3-libsemanage-3.6-2.1.el9_5.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:b7f5d62cbb163b3c13f0db87e326dc3937d206b9c22732dc75de3b7fae32248e', repository_id='ubi-9-appstream-rpms', summary='semanage python 3 bindings for libsemanage')
+2025-03-03 13:56:03,816 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/python3-policycoreutils-3.6-2.1.el9.noarch.rpm': Package(name='python3-policycoreutils', version='3.6', release='2.1.el9', arch='noarch', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/python3-policycoreutils-3.6-2.1.el9.noarch.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:7dbe7be855cc83e372add890e9e0c5256ef57132d9731b5db204c425bf21b194', repository_id='ubi-9-appstream-rpms', summary='SELinux policy core python3 interfaces')
+2025-03-03 13:56:03,831 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/scl-utils-2.0.3-4.el9.x86_64.rpm': Package(name='scl-utils', version='2.0.3', release='4.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/s/scl-utils-2.0.3-4.el9.x86_64.rpm', epoch='1', vendor='Red Hat, Inc.', checksum='sha256:164d245bec95c7dcbba881fd88ee567bc6d5859329c91ae05a6ad5429700bdbc', repository_id='ubi-9-appstream-rpms', summary='Utilities for alternative packaging')
+2025-03-03 13:56:03,846 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/wget-1.21.1-8.el9_4.x86_64.rpm': Package(name='wget', version='1.21.1', release='8.el9_4', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/w/wget-1.21.1-8.el9_4.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:a5366a624f63487a0cfc5fc2fe15148d6c31be27c80cf00815f25324e3d0d729', repository_id='ubi-9-appstream-rpms', summary='A utility for retrieving files using the HTTP or FTP protocols')
+2025-03-03 13:56:03,862 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/binutils-2.35.2-54.el9.x86_64.rpm': Package(name='binutils', version='2.35.2', release='54.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/b/binutils-2.35.2-54.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:58286130e67839b931412baa9cb1efcb42d02dc3d1b84caed2ba711773c47ec9', repository_id='ubi-9-baseos-rpms', summary='A GNU collection of binary utilities')
+2025-03-03 13:56:03,877 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/binutils-gold-2.35.2-54.el9.x86_64.rpm': Package(name='binutils-gold', version='2.35.2', release='54.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/b/binutils-gold-2.35.2-54.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:44ace5e347a8aaad0ae8a449c5d87f69314def94b45bbd1a22a6bd827b549d95', repository_id='ubi-9-baseos-rpms', summary='The GOLD linker, a faster alternative to the BFD linker')
+2025-03-03 13:56:03,891 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/diffutils-3.7-12.el9.x86_64.rpm': Package(name='diffutils', version='3.7', release='12.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/d/diffutils-3.7-12.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:2d4c4fdfc10215af3c957c24995b79a26e27e6d76de4ed1f5198d25bf7ef9671', repository_id='ubi-9-baseos-rpms', summary='GNU collection of diff utilities')
+2025-03-03 13:56:03,906 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/elfutils-debuginfod-client-0.191-4.el9.x86_64.rpm': Package(name='elfutils-debuginfod-client', version='0.191', release='4.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/e/elfutils-debuginfod-client-0.191-4.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:9c26ab1eea196541d9cde34a96acbf8647746ccd0447ad353dec5ec4225826a5', repository_id='ubi-9-baseos-rpms', summary='Library and command line client for build-id HTTP ELF/DWARF server')
+2025-03-03 13:56:03,920 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/environment-modules-5.3.0-1.el9.x86_64.rpm': Package(name='environment-modules', version='5.3.0', release='1.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/e/environment-modules-5.3.0-1.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:0bf2c48686d2c9f4d0f4d2cbe80a64f7d3c26559dd3cf6ca798a6615407a58ae', repository_id='ubi-9-baseos-rpms', summary="Provides dynamic modification of a user's environment")
+2025-03-03 13:56:03,934 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/groff-base-1.22.4-10.el9.x86_64.rpm': Package(name='groff-base', version='1.22.4', release='10.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/g/groff-base-1.22.4-10.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:4d8ff13569b3b231b3fb847e9e22615c6e08215d1f2c0c78eac2e345b9efd394', repository_id='ubi-9-baseos-rpms', summary='Parts of the groff formatting system required to display manual pages')
+2025-03-03 13:56:03,947 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/jansson-2.14-1.el9.x86_64.rpm': Package(name='jansson', version='2.14', release='1.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/j/jansson-2.14-1.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:4e9aec51ee46d7265d6edd1245b5d5ab5e8336dc2a4ca17f2cace2ce8bae3761', repository_id='ubi-9-baseos-rpms', summary='C library for encoding, decoding and manipulating JSON data')
+2025-03-03 13:56:03,960 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/less-590-5.el9.x86_64.rpm': Package(name='less', version='590', release='5.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/less-590-5.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:a726061c966a134a5e5b42b60e4162ee85a2cef8843b6fd28e08264ceebb54f4', repository_id='ubi-9-baseos-rpms', summary='A text file browser similar to more, but better')
+2025-03-03 13:56:03,974 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libatomic-11.5.0-5.el9_5.x86_64.rpm': Package(name='libatomic', version='11.5.0', release='5.el9_5', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libatomic-11.5.0-5.el9_5.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:f319f76d1b4f3c82cc2cf8eee5b3c170a1d6f5c1c72d7790141307159572578a', repository_id='ubi-9-baseos-rpms', summary='The GNU Atomic library')
+2025-03-03 13:56:03,988 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libedit-3.1-38.20210216cvs.el9.x86_64.rpm': Package(name='libedit', version='3.1', release='38.20210216cvs.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libedit-3.1-38.20210216cvs.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:9e41ff5754a5dca1308adf9617828934d56cb60d8d08f128f80e4328f69bc78c', repository_id='ubi-9-baseos-rpms', summary='The NetBSD Editline library')
+2025-03-03 13:56:04,002 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libpipeline-1.5.3-4.el9.x86_64.rpm': Package(name='libpipeline', version='1.5.3', release='4.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libpipeline-1.5.3-4.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:c972030a8fbaa2d981f0e5fdfc42d6d5173dd047c94d86ab7732e3e53fc4e97a', repository_id='ubi-9-baseos-rpms', summary='A pipeline manipulation library')
+2025-03-03 13:56:04,016 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libpkgconf-1.7.3-10.el9.x86_64.rpm': Package(name='libpkgconf', version='1.7.3', release='10.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libpkgconf-1.7.3-10.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:4feae5941b73640bd86b8d506a657cac5b770043db1464fbcd207721b2159dda', repository_id='ubi-9-baseos-rpms', summary='Backend library for pkgconf')
+2025-03-03 13:56:04,030 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libpsl-0.21.1-5.el9.x86_64.rpm': Package(name='libpsl', version='0.21.1', release='5.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libpsl-0.21.1-5.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:ad1a62ef07682bb64a476c1a49f5cfc7abc9beb44775e7e511bf737e9a6bf99d', repository_id='ubi-9-baseos-rpms', summary='C library for the Publix Suffix List')
+2025-03-03 13:56:04,043 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libselinux-utils-3.6-1.el9.x86_64.rpm': Package(name='libselinux-utils', version='3.6', release='1.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libselinux-utils-3.6-1.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:479229e7c3d8cb005dafd637b2973fbee0bb507cfed8e72f7076318513200abd', repository_id='ubi-9-baseos-rpms', summary='SELinux libselinux utilities')
+2025-03-03 13:56:04,055 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/make-4.3-8.el9.x86_64.rpm': Package(name='make', version='4.3', release='8.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/m/make-4.3-8.el9.x86_64.rpm', epoch='1', vendor='Red Hat, Inc.', checksum='sha256:561f0c2251e9217c81a6c88de4d2d9231a039aaab37e8a0d2559d36ce9fa85fd', repository_id='ubi-9-baseos-rpms', summary='A GNU tool which simplifies the build process for users')
+2025-03-03 13:56:04,070 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/man-db-2.9.3-7.el9.x86_64.rpm': Package(name='man-db', version='2.9.3', release='7.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/m/man-db-2.9.3-7.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:1eb7770a27102f59012f704e90aa04b130ab4f46fec983a7441ec9e8810f2da4', repository_id='ubi-9-baseos-rpms', summary='Tools for searching and reading man pages')
+2025-03-03 13:56:04,083 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/pkgconf-1.7.3-10.el9.x86_64.rpm': Package(name='pkgconf', version='1.7.3', release='10.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/pkgconf-1.7.3-10.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:bb47b4ecc499c308f41031a99e723827d152d5d750f59849d0c265d820944a26', repository_id='ubi-9-baseos-rpms', summary='Package compiler and linker metadata toolkit')
+2025-03-03 13:56:04,097 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/pkgconf-m4-1.7.3-10.el9.noarch.rpm': Package(name='pkgconf-m4', version='1.7.3', release='10.el9', arch='noarch', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/pkgconf-m4-1.7.3-10.el9.noarch.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:91bafd6e06099451f60288327b275cfcc651822f6145176a157c6b0fa5131e02', repository_id='ubi-9-baseos-rpms', summary='m4 macros for pkgconf')
+2025-03-03 13:56:04,110 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/pkgconf-pkg-config-1.7.3-10.el9.x86_64.rpm': Package(name='pkgconf-pkg-config', version='1.7.3', release='10.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/pkgconf-pkg-config-1.7.3-10.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:9a502d81d73d3303ceb53a06ad7ce525c97117ea64352174a33708bf3429283d', repository_id='ubi-9-baseos-rpms', summary='pkgconf shim to provide /usr/bin/pkg-config')
+2025-03-03 13:56:04,123 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/policycoreutils-3.6-2.1.el9.x86_64.rpm': Package(name='policycoreutils', version='3.6', release='2.1.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/policycoreutils-3.6-2.1.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:8dcd39960d3103f7a4ad2b9f7a0e15469ebf4da98f6c215cddfffdb830dc12b5', repository_id='ubi-9-baseos-rpms', summary='SELinux policy core utilities')
+2025-03-03 13:56:04,138 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/procps-ng-3.3.17-14.el9.x86_64.rpm': Package(name='procps-ng', version='3.3.17', release='14.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/procps-ng-3.3.17-14.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:506ad778f63821e8d9647ca8e0a3ff21b8af9c1666060d5200f9b26ee718333c', repository_id='ubi-9-baseos-rpms', summary='System and process monitoring utilities')
+2025-03-03 13:56:04,152 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/publicsuffix-list-dafsa-20210518-3.el9.noarch.rpm': Package(name='publicsuffix-list-dafsa', version='20210518', release='3.el9', arch='noarch', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/publicsuffix-list-dafsa-20210518-3.el9.noarch.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:e6ec3390a736b085f403168c512a6b2b6f8e12a8fd5a4459f1c7dbbff2b67c33', repository_id='ubi-9-baseos-rpms', summary='Cross-vendor public domain suffix database in DAFSA form')
+2025-03-03 13:56:04,166 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/python3-setools-4.4.4-1.el9.x86_64.rpm': Package(name='python3-setools', version='4.4.4', release='1.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/p/python3-setools-4.4.4-1.el9.x86_64.rpm', epoch=None, vendor='Red Hat, Inc.', checksum='sha256:91946d729d2b03b4abe1c43962f22d110468db0163241cda7b1d549c615d0261', repository_id='ubi-9-baseos-rpms', summary='Policy analysis tools for SELinux')
+2025-03-03 13:56:04,180 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/tcl-8.6.10-7.el9.x86_64.rpm': Package(name='tcl', version='8.6.10', release='7.el9', arch='x86_64', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/t/tcl-8.6.10-7.el9.x86_64.rpm', epoch='1', vendor='Red Hat, Inc.', checksum='sha256:2062dce4bed26d3684de4dad68f32307ebacf5c7d50d3aa7bf6470e66fb36df5', repository_id='ubi-9-baseos-rpms', summary='Tool Command Language, pronounced tickle')
+2025-03-03 13:56:04,194 DEBUG RPM package attributes for '/workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/vim-filesystem-8.2.2637-21.el9.noarch.rpm': Package(name='vim-filesystem', version='8.2.2637', release='21.el9', arch='noarch', download_url='https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/v/vim-filesystem-8.2.2637-21.el9.noarch.rpm', epoch='2', vendor='Red Hat, Inc.', checksum='sha256:a9fce2685b6dfe72b19ca93b274ff1ce709d14e6a8eb48eec5cd4a0d8205015b', repository_id='ubi-9-baseos-rpms', summary='VIM filesystem layout')
+2025-03-03 13:56:04,197 INFO All dependencies fetched successfully \o/
+----------------------------------
+CACHI2 FETCHED FILES
+----------------------------------
+cachi2.output
+cachi2.output/deps
+cachi2.output/deps/rpm
+cachi2.output/deps/rpm/x86_64
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/checkpolicy-3.6-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/clang-18.1.8-3.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/clang-libs-18.1.8-3.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/clang-resource-filesystem-18.1.8-3.el9.noarch.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/annobin-12.65-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/compiler-rt-18.1.8-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/cpp-11.5.0-5.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-11.5.0-5.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-c++-11.5.0-5.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-binutils-2.40-21.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-binutils-gold-2.40-21.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-gcc-13.3.1-2.2.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-gcc-c++-13.3.1-2.2.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-libstdc++-devel-13.3.1-2.2.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-runtime-13.0-2.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/glibc-devel-2.34-125.el9_5.1.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/glibc-headers-2.34-125.el9_5.1.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/kernel-headers-5.14.0-503.26.1.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/libmpc-1.2.1-4.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/libomp-18.1.8-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/libomp-devel-18.1.8-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/libstdc++-devel-11.5.0-5.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/libxcrypt-devel-4.4.18-3.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/llvm-18.1.8-3.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/llvm-libs-18.1.8-3.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/openssl-devel-3.2.2-6.el9_5.1.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/policycoreutils-python-utils-3.6-2.1.el9.noarch.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/python3-audit-3.1.5-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/python3-distro-1.5.0-7.el9.noarch.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/python3-libselinux-3.6-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/python3-libsemanage-3.6-2.1.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/python3-policycoreutils-3.6-2.1.el9.noarch.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/scl-utils-2.0.3-4.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/wget-1.21.1-8.el9_4.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/binutils-2.35.2-54.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/binutils-gold-2.35.2-54.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/diffutils-3.7-12.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/elfutils-debuginfod-client-0.191-4.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/environment-modules-5.3.0-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/groff-base-1.22.4-10.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/jansson-2.14-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/less-590-5.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libatomic-11.5.0-5.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libedit-3.1-38.20210216cvs.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libpipeline-1.5.3-4.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libpkgconf-1.7.3-10.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libselinux-utils-3.6-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libpsl-0.21.1-5.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/make-4.3-8.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/pkgconf-1.7.3-10.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/man-db-2.9.3-7.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/pkgconf-pkg-config-1.7.3-10.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/policycoreutils-3.6-2.1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/pkgconf-m4-1.7.3-10.el9.noarch.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/procps-ng-3.3.17-14.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/publicsuffix-list-dafsa-20210518-3.el9.noarch.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/python3-setools-4.4.4-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/vim-filesystem-8.2.2637-21.el9.noarch.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/tcl-8.6.10-7.el9.x86_64.rpm
+cachi2.output/.build-config.json
+cachi2.output/bom.json
+2025-03-03 13:56:07,521 INFO Creating repository metadata for repoid 'ubi-9-appstream-rpms': /workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms
+2025-03-03 13:56:07,521 DEBUG $ createrepo_c /workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms
+2025-03-03 13:56:07,839 DEBUG Directory walk started
+Directory walk done - 34 packages
+Temporary output repo path: /workdir/cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/.repodata/
+Pool started (with 5 workers)
+Pool finished
+
+2025-03-03 13:56:07,839 INFO Creating repository metadata for repoid 'ubi-9-baseos-rpms': /workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms
+2025-03-03 13:56:07,839 DEBUG $ createrepo_c /workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms
+2025-03-03 13:56:07,972 DEBUG Directory walk started
+Directory walk done - 25 packages
+Temporary output repo path: /workdir/cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/.repodata/
+Pool started (with 5 workers)
+Pool finished
+
+2025-03-03 13:56:07,973 DEBUG Preparing repofile content for arch 'x86_64'
+2025-03-03 13:56:07,974 INFO Creating /workdir/cachi2.output/deps/rpm/x86_64/repos.d/cachi2.repo
+----------------------------------
+CACHI2 INJECTED FILES
+----------------------------------
+cachi2.output
+cachi2.output/deps
+cachi2.output/deps/rpm
+cachi2.output/deps/rpm/x86_64
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/checkpolicy-3.6-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/clang-18.1.8-3.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/clang-libs-18.1.8-3.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/clang-resource-filesystem-18.1.8-3.el9.noarch.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/annobin-12.65-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/compiler-rt-18.1.8-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/cpp-11.5.0-5.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-11.5.0-5.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-c++-11.5.0-5.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-binutils-2.40-21.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-binutils-gold-2.40-21.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-gcc-13.3.1-2.2.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-gcc-c++-13.3.1-2.2.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-libstdc++-devel-13.3.1-2.2.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/gcc-toolset-13-runtime-13.0-2.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/glibc-devel-2.34-125.el9_5.1.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/glibc-headers-2.34-125.el9_5.1.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/kernel-headers-5.14.0-503.26.1.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/libmpc-1.2.1-4.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/libomp-18.1.8-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/libomp-devel-18.1.8-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/libstdc++-devel-11.5.0-5.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/libxcrypt-devel-4.4.18-3.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/llvm-18.1.8-3.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/llvm-libs-18.1.8-3.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/openssl-devel-3.2.2-6.el9_5.1.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/policycoreutils-python-utils-3.6-2.1.el9.noarch.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/python3-audit-3.1.5-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/python3-distro-1.5.0-7.el9.noarch.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/python3-libselinux-3.6-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/python3-libsemanage-3.6-2.1.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/python3-policycoreutils-3.6-2.1.el9.noarch.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/scl-utils-2.0.3-4.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/wget-1.21.1-8.el9_4.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/repodata
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/repodata/637a0092b86268cfe89bc77c775569130109ba3452dd7c8bf81d0b2223acdf06-primary.xml.zst
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/repodata/61f95b354def6187c3c725074d1436fa67cd3126df47e2483ac855e1934e7493-filelists.xml.zst
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/repodata/c69376df688fb2a73521b15ac145737ec28d3f1704b5f2990fe327c1f22bb8cf-other.xml.zst
+cachi2.output/deps/rpm/x86_64/ubi-9-appstream-rpms/repodata/repomd.xml
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/binutils-2.35.2-54.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/binutils-gold-2.35.2-54.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/diffutils-3.7-12.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/elfutils-debuginfod-client-0.191-4.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/environment-modules-5.3.0-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/groff-base-1.22.4-10.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/jansson-2.14-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/less-590-5.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libatomic-11.5.0-5.el9_5.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libedit-3.1-38.20210216cvs.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libpipeline-1.5.3-4.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libpkgconf-1.7.3-10.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libselinux-utils-3.6-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/libpsl-0.21.1-5.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/make-4.3-8.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/pkgconf-1.7.3-10.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/man-db-2.9.3-7.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/pkgconf-pkg-config-1.7.3-10.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/policycoreutils-3.6-2.1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/pkgconf-m4-1.7.3-10.el9.noarch.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/procps-ng-3.3.17-14.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/publicsuffix-list-dafsa-20210518-3.el9.noarch.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/python3-setools-4.4.4-1.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/vim-filesystem-8.2.2637-21.el9.noarch.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/tcl-8.6.10-7.el9.x86_64.rpm
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/repodata
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/repodata/dbc5ef718afb37a83dfe884a30baff8a1c89dbffccfd01309a4a41f995622120-primary.xml.zst
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/repodata/a0e89e6983835513f93c1b3b98371b847d8a55b9300669a4d4c285e668dc9bc9-filelists.xml.zst
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/repodata/45e24b6fbfb162f4914d7fafa5f240c9eda43b049b431df1a1180997dd70ec7a-other.xml.zst
+cachi2.output/deps/rpm/x86_64/ubi-9-baseos-rpms/repodata/repomd.xml
+cachi2.output/deps/rpm/x86_64/repos.d
+cachi2.output/deps/rpm/x86_64/repos.d/cachi2.repo
+cachi2.output/.build-config.json
+cachi2.output/bom.json
+STEP 1/3: FROM registry.access.redhat.com/ubi9/go-toolset:1.21 AS builder
+STEP 2/3: USER root
+--> ade6cc7a82bc
+STEP 3/3: RUN dnf install -y openssl clang
+Updating Subscription Management repositories.
+Unable to read consumer identity
+
+This system is not registered with an entitlement server. You can use subscription-manager to register.
+
+Repository 'ubi-9-appstream-rpms' is missing name in configuration, using id.
+Repository 'ubi-9-baseos-rpms' is missing name in configuration, using id.
+ubi-9-appstream-rpms                             61 MB/s |  74 kB     00:00    
+ubi-9-baseos-rpms                                25 MB/s |  25 kB     00:00    
+Package openssl-1:3.0.7-28.el9_4.x86_64 is already installed.
+Error: 
+ Problem: package gcc-toolset-13-gcc-c++-13.3.1-2.2.el9_5.x86_64 from ubi-9-appstream-rpms requires gcc-toolset-13-runtime, but none of the providers can be installed
+  - package gcc-toolset-13-runtime-13.0-2.el9.x86_64 from ubi-9-appstream-rpms requires /usr/sbin/semanage, but none of the providers can be installed
+  - package clang-libs-18.1.8-3.el9.x86_64 from ubi-9-appstream-rpms requires gcc-toolset-13-gcc-c++, but none of the providers can be installed
+  - package policycoreutils-python-utils-3.6-2.1.el9.noarch from ubi-9-appstream-rpms requires python3-policycoreutils = 3.6-2.1.el9, but none of the providers can be installed
+  - package clang-18.1.8-3.el9.x86_64 from ubi-9-appstream-rpms requires libclang-cpp.so.18.1()(64bit), but none of the providers can be installed
+  - package clang-18.1.8-3.el9.x86_64 from ubi-9-appstream-rpms requires clang-libs(x86-64) = 18.1.8-3.el9, but none of the providers can be installed
+  - package python3-policycoreutils-3.6-2.1.el9.noarch from ubi-9-appstream-rpms requires python3-libsemanage >= 3.6-1, but none of the providers can be installed
+  - conflicting requests
+  - nothing provides libsemanage(x86-64) = 3.6-2.1.el9_5 needed by python3-libsemanage-3.6-2.1.el9_5.x86_64 from ubi-9-appstream-rpms
+(try to add '--skip-broken' to skip uninstallable packages or '--nobest' to use not only best candidate packages)
+Error: building at STEP "RUN dnf install -y openssl clang": while running runtime: exit status 1
