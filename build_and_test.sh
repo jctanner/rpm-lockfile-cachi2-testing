@@ -42,7 +42,7 @@ podman build -t $LOCKFILE_TAG -f Containerfile .
 cd $WORKDIR
 
 # use the container to generate the lockfile ...
-podman run --rm -w /workdir -v $(pwd):/workdir \
+podman run --rm -w /workdir -v $(pwd):/workdir:z \
     -it $LOCKFILE_RUNTIME_TAG --image=$UBI_TAG --outfile=/workdir/rpms-test-el9.lock.yaml --allowerasing rpms_el9.in.yaml
 
 echo "----------------------------------"
@@ -52,8 +52,14 @@ yq '.arches[].packages[].name' rpms-test-el9.lock.yaml
 
 # make the cache with cachi2 ...
 rm -rf cachi2.output
-podman run --rm -it -v $(pwd):/workdir -w /workdir $CACHI2_TAG \
-	--log-level=debug fetch-deps --source=/workdir --output=/workdir/cachi2.output --dev-package-managers rpm
+podman run --rm \
+    -it \
+    -v $(pwd):/workdir:z \
+    -w /workdir $CACHI2_TAG \
+	--log-level=debug fetch-deps \
+    --source=/workdir \
+    --output=/workdir/cachi2.output \
+    --dev-package-managers rpm
 
 echo "----------------------------------"
 echo "CACHI2 FETCHED FILES"
@@ -62,7 +68,7 @@ find cachi2.output
 
 
 # create the repo files ...
-podman run --rm -it -v $(pwd):/workdir -w /workdir $CACHI2_TAG \
+podman run --rm -it -v $(pwd):/workdir:z -w /workdir $CACHI2_TAG \
 	--log-level=debug inject-files --for-output-dir=/tmp/cachi2 /workdir/cachi2.output
 
 echo "----------------------------------"
@@ -76,6 +82,6 @@ podman build \
     --security-opt seccomp=unconfined \
     --cap-add all \
     --target=builder \
-    -v $(pwd)/cachi2.output:/tmp/cachi2 \
-    -v $(pwd)/cachi2.output/deps/rpm/x86_64/repos.d:/etc/yum.repos.d \
+    -v $(pwd)/cachi2.output:/tmp/cachi2:z \
+    -v $(pwd)/cachi2.output/deps/rpm/x86_64/repos.d:/etc/yum.repos.d:z \
     -f Dockerfile.el9.test .
