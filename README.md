@@ -5,7 +5,7 @@ podman build -t jtanner/lockfile-prototype-test:latest -f Containerfile .
 ```
 
 ```sh
-git clone https://github.com/jctanner/cachi2@ALLOW_SELF_SIGNED_CERTS_FLAG
+git clone -b ALLOW_SELF_SIGNED_CERTS_FLAG https://github.com/jctanner/cachi2
 cd cachi2
 podman build -t jctanner/cachi2:latest .
 ```
